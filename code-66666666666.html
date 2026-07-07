@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>機構二課新人教育訓練導覽系統</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            overflow: hidden; /* 防止雙重捲軸 */
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background-color: #262626;
+            padding: 15px 20px;
+            text-align: center;
+            border-bottom: 2px solid #333333;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        h1 {
+            margin: 0 0 5px 0;
+            font-size: 22px;
+            color: #4da6ff;
+        }
+        p {
+            margin: 0;
+            color: #aaaaaa;
+            font-size: 13px;
+        }
+        .web-viewer {
+            flex: 1; /* 讓 PDF 區塊自動填滿剩餘的所有畫面 */
+            width: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⚙️ 機構二課新人教育訓練導覽系統</h1>
+        <p>💡 提示：如果使用電腦瀏覽器，您可以直接點擊 PDF 畫面上的圖塊跳轉至對應的 SOP 文件。</p>
+    </div>
+
+    <!-- 內嵌您上傳的 PDF 檔案 -->
+    <iframe class="web-viewer" src="機構二課新人教育訓練map.pdf"></iframe>
+
+</body>
+</html>
