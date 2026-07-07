@@ -12,7 +12,7 @@
             height: 100%;
             background-color: #1a1a1a;
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-            overflow: hidden; /* 消除網頁外層捲軸 */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -34,9 +34,12 @@
             color: #aaaaaa;
             font-size: 13px;
         }
-        /* 讓 PDF 撐滿整個網頁畫面 */
-        .pdf-viewer {
+        .pdf-container {
             flex: 1;
+            width: 100%;
+            height: 100%;
+        }
+        .pdf-viewer {
             width: 100%;
             height: 100%;
             border: none;
@@ -47,11 +50,16 @@
 
     <div class="header">
         <h1>⚙️ 機構二課新人教育訓練導覽系統</h1>
-        <p>💡 提示：心智圖已直接融入網頁，您可以直接點擊畫面上的白色方塊跳轉至對應的 SOP。</p>
+        <p>💡 提示：如果畫面出現空白，請重新重新整理網頁。您可以直接點擊心智圖上的區塊跳轉 SOP。</p>
     </div>
 
-    <!-- 這裡直接精準對接您在 GitHub 儲存庫裡的 PDF 檔案名稱 -->
-    <iframe class="pdf-viewer" src="機構二課新人教育訓練map.pdf"></iframe>
+    <div class="pdf-container">
+        <!-- 使用通用 object 標籤嵌入，並自動進行網址編碼處理 -->
+        <object class="pdf-viewer" data="%E6%A9%9F%E6%A7%8B%E4%BA%8C%E8%AA%B2%E6%96%B0%E4%BA%BA%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4map.pdf" type="application/pdf">
+            <!-- 備用方案：如果瀏覽器全面阻擋，則顯示下載按鈕 -->
+            <iframe class="pdf-viewer" src="%E6%A9%9F%E6%A7%8B%E4%BA%8C%E8%AA%B2%E6%96%B0%E4%BA%BA%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4map.pdf"></iframe>
+        </object>
+    </div>
 
 </body>
 </html>
