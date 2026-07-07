@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研發處 SOP & 心智圖索引系統</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 5px;
+            font-size: 24px;
+            color: #4da6ff;
+        }
+        p {
+            color: #aaaaaa;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        .container {
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        /* 滑鼠移到超連結熱區時顯示小手，並加上提示 */
+        area {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>研發設備與作業流程 SOP 導覽圖</h1>
+    <p>💡 提示：直接點擊畫面上的「白色文字圖塊」，即可一鍵跳轉至對應的雲端 SOP 說明文件。</p>
+
+    <div class="container">
+        <!-- 嵌入您的心智圖（此處直接引用您上傳至 GitHub 儲存庫的 index.html 同層級圖片，或可替換為任何網路圖片網址） -->
+        <img src="index.files/image.png" usemap="#image-map" alt="SOP MindMap">
+
+        <!-- 手動建立的超連結點擊熱區 (影像地圖) -->
+        <map name="image-map">
+            <!-- 範例熱區 1：次組圖製作注意事項 (左下) -->
+            <area target="_blank" alt="次組圖製作注意事項" title="次組圖製作注意事項" href="https://your-cloud-storage.com/sop/sub-assembly-notice.pdf" coords="504,785,690,810" shape="rect">
+            
+            <!-- 範例熱區 2：整批列印圖面和套圖框 (底層) -->
+            <area target="_blank" alt="整批列印圖面和套圖框" title="整批列印圖面和套圖框" href="https://your-cloud-storage.com/sop/batch-print-frames.pdf" coords="504,832,690,855" shape="rect">
+            
+            <!-- 範例熱區 3：轉檔解密流程 (最底層) -->
+            <area target="_blank" alt="轉檔解密流程" title="轉檔解密流程" href="https://your-cloud-storage.com/sop/decrypt-process.pdf" coords="490,910,615,935" shape="rect">
+            
+            <!-- 範例熱區 4：研發設備使用權限申請單 (右上區) -->
+            <area target="_blank" alt="研發設備使用權限申請單" title="研發設備使用權限申請單" href="https://your-cloud-storage.com/forms/permission-apply.xlsx" coords="760,290,980,315" shape="rect">
+            
+            <!-- 範例熱區 5：機械手選型應用 (左上區) -->
+            <area target="_blank" alt="機械手選型應用" title="機械手選型應用" href="https://your-cloud-storage.com/sop/robot-selection.pdf" coords="105,185,210,210" shape="rect">
+        </map>
+    </div>
+
+</body>
+</html>
