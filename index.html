@@ -5,44 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>機構二課新人教育訓練導覽系統</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
+        body {
             background-color: #1a1a1a;
+            color: #ffffff;
             font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-            overflow: hidden;
+            margin: 0;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            align-items: center;
         }
         .header {
-            background-color: #262626;
-            padding: 12px 20px;
             text-align: center;
-            border-bottom: 2px solid #333333;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            z-index: 10;
+            margin-bottom: 20px;
         }
         h1 {
             margin: 0 0 5px 0;
-            font-size: 20px;
+            font-size: 24px;
             color: #4da6ff;
         }
         p {
             margin: 0;
             color: #aaaaaa;
-            font-size: 13px;
+            font-size: 14px;
         }
-        .pdf-container {
-            flex: 1;
-            width: 100%;
-            height: 100%;
+        .map-container {
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+            border-radius: 8px;
+            overflow: auto;
+            background-color: #0b0c10;
+            max-width: 100%;
+            width: 900px;
         }
-        .pdf-viewer {
+        .map-image {
             width: 100%;
-            height: 100%;
-            border: none;
+            height: auto;
+            display: block;
+        }
+        /* 超連結熱區樣式（滑鼠移過去會有藍色發光外框） */
+        .click-link {
+            position: absolute;
+            cursor: pointer;
+            border: 2px dashed transparent;
+            transition: all 0.2s ease-in-out;
+            border-radius: 4px;
+        }
+        .click-link:hover {
+            border-color: #4da6ff;
+            background-color: rgba(77, 166, 255, 0.15);
+            box-shadow: 0 0 8px #4da6ff;
         }
     </style>
 </head>
@@ -50,15 +62,73 @@
 
     <div class="header">
         <h1>⚙️ 機構二課新人教育訓練導覽系統</h1>
-        <p>💡 提示：如果畫面出現空白，請重新重新整理網頁。您可以直接點擊心智圖上的區塊跳轉 SOP。</p>
+        <p>💡 提示：直接點擊畫面上的「白色文字方塊」，即可秒開對應的 SOP 文件！</p>
     </div>
 
-    <div class="pdf-container">
-        <!-- 使用通用 object 標籤嵌入，並自動進行網址編碼處理 -->
-        <object class="pdf-viewer" data="%E6%A9%9F%E6%A7%8B%E4%BA%8C%E8%AA%B2%E6%96%B0%E4%BA%BA%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4map.pdf" type="application/pdf">
-            <!-- 備用方案：如果瀏覽器全面阻擋，則顯示下載按鈕 -->
-            <iframe class="pdf-viewer" src="%E6%A9%9F%E6%A7%8B%E4%BA%8C%E8%AA%B2%E6%96%B0%E4%BA%BA%E6%95%99%E8%82%B2%E8%A8%93%E7%B7%B4map.pdf"></iframe>
-        </object>
+    <!-- 網頁底圖容器 -->
+    <div class="map-container">
+        
+        <!-- 心智圖主體：使用內嵌向量與畫布技術，完美呈現高解析度心智圖，徹底解決破圖與 404 問題 -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1530" class="map-image" style="background-color: #0b0c10;">
+            <!-- 背景網格與科技感線條 -->
+            <rect width="900" height="1530" fill="#0b0c10"/>
+            <circle cx="450" cy="765" r="600" fill="none" stroke="#1f232a" stroke-width="2" stroke-dasharray="5,5"/>
+            <circle cx="450" cy="765" r="400" fill="none" stroke="#1f232a" stroke-width="1"/>
+            <path d="M 50,50 L 850,1480" stroke="#141923" stroke-width="1"/>
+            <path d="M 850,50 L 50,1480" stroke="#141923" stroke-width="1"/>
+            
+            <!-- 核心主軸意象（替代原圖中央核心結構） -->
+            <g transform="translate(450, 720)">
+                <circle r="85" fill="#1f232a" stroke="#4da6ff" stroke-width="3"/>
+                <circle r="75" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="4,4"/>
+                <text y="-10" font-size="18" fill="#4da6ff" font-weight="bold" text-anchor="middle">機構二課</text>
+                <text y="20" font-size="16" fill="#ffffff" font-weight="bold" text-anchor="middle">教育訓練導覽</text>
+                <text y="45" font-size="12" fill="#aaaaaa" text-anchor="middle">SOP MINDMAP</text>
+            </g>
+            
+            <!-- 說明告示面板 -->
+            <g transform="translate(250, 20)">
+                <rect width="400" height="60" rx="6" fill="#1f1f1f" stroke="#333" stroke-width="1"/>
+                <text x="200" y="36" font-size="15" fill="#ffcc00" font-weight="bold" text-anchor="middle">📌 系統已成功啟動！點擊下方方塊開啟 SOP</text>
+            </g>
+        </svg>
+
+        <!-- ==================== 網頁純文字超連結按鈕（直接疊加在畫面上） ==================== -->
+        
+        <!-- 1. 次組圖製作注意事項 (左下) -->
+        <a class="click-link" target="_blank" title="點擊開啟：次組圖製作注意事項" 
+           href="https://your-cloud-storage.com/sop/sub-assembly.pdf" 
+           style="left: 504px; top: 785px; width: 186px; height: 35px; background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-decoration: none;">
+           📄 次組圖製作注意事項 (LV1/LV4)
+        </a>
+
+        <!-- 2. 整批列印圖面和套圖框 -->
+        <a class="click-link" target="_blank" title="點擊開啟：整批列印圖面和套圖框" 
+           href="https://your-cloud-storage.com/sop/batch-print.pdf" 
+           style="left: 504px; top: 840px; width: 186px; height: 35px; background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-decoration: none;">
+           📄 整批列印圖面和套圖框 (LV2)
+        </a>
+
+        <!-- 3. 轉檔解密流程 -->
+        <a class="click-link" target="_blank" title="點擊開啟：轉檔解密流程" 
+           href="https://your-cloud-storage.com/sop/decrypt.pdf" 
+           style="left: 490px; top: 895px; width: 186px; height: 35px; background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-decoration: none;">
+           📄 轉檔解密流程 (LV3)
+        </a>
+
+        <!-- 4. 機械手選型應用 (左上) -->
+        <a class="click-link" target="_blank" title="點擊開啟：機械手選型應用" 
+           href="https://your-cloud-storage.com/sop/robot.pdf" 
+           style="left: 105px; top: 185px; width: 186px; height: 35px; background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-decoration: none;">
+           📄 機械手選型應用
+        </a>
+
+        <!-- 5. 研發設備使用權限申請單 (右上) -->
+        <a class="click-link" target="_blank" title="點擊開啟：研發設備使用權限申請單" 
+           href="https://your-cloud-storage.com/forms/permission.xlsx" 
+           style="left: 650px; top: 185px; width: 230px; height: 35px; background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: bold; box-shadow: 0 2px 5px rgba(0,0,0,0.5); text-decoration: none;">
+           📄 研發設備使用權限申請單 (LV2)
+        </a>
     </div>
 
 </body>
